@@ -41,7 +41,7 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
 <h2>Actions and Observations</h2>
 
-- Part 2 (Observe ICMP Traffic):
+- Part 2 Observe ICMP(Internet Control Message Protocol) Traffic:
 
   -Use Remote Desktop to connect to your Windows 10 Virtual Machine
 
@@ -81,40 +81,57 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
   -Stop the ping activity Ctrl+C on the command line
 
-- Part 3 (Observe SSH Traffic):
+- Part 3 Observe SSH(Secure Shell) Traffic:
 
   -Back in Wireshark, filter for SSH traffic only
 
-  -From your Windows 10 VM, “SSH into” your Ubuntu Virtual Machine (via its private IP address)
+  -From your Windows 10 VM, “SSH into” your Ubuntu Virtual Machine (via its private IP address). Just use the commmand SSH and the IP address, type yes+ Enter and type the password, note that is not visible so type it correctly, you got 3 attempts until it close the connection, but you can try again from the beginning
+  
+   <img src="https://i.imgur.com/VTm22fE.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 
-  -Type commands (username, pwd, etc) into the linux SSH connection and observe SSH traffic spam in WireShark
+  -You will see traffic on Wireshark by now
+
+   <img src="https://i.imgur.com/JWJfH86.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
+ -Type commands ( pwd, ls -lasth, touch, etc) into the linux SSH connection and observe SSH traffic spam in WireShark
 
   -Exit the SSH connection by typing ‘exit’ and pressing [Enter]
 
-- Step 4
+- Part 4 Observe DHCP(Dynamic Host Configuration Protocol) Traffic:
 
-<h2>Actions and Observations</h2>
+  -Back in Wireshark, filter for DHCP traffic only
 
-<p>
-<img src="https://i.imgur.com/LXAGaCj.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
+  -From your Windows 10 VM, attempt to issue your VM a new IP address from the command line (ipconfig /renew)
 
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
+  -Observe the DHCP traffic appearing in WireShark
 
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
+   <img src="https://i.imgur.com/hvgqy1R.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+ 
+   <img src="https://i.imgur.com/5kulx6W.png)" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
+  
+
+- Part 5 Observe DNS(Domain Name System) Traffic:
+
+   -Back in Wireshark, filter for DNS traffic only,this time let's try another way instead of DNS on the bar type udp.port==53
+
+  -From your Windows 10 VM within a command line, use nslookup to see what google.com and disney.com’s IP addresses are
+
+  -Observe the DNS traffic being show in WireShark
+  
+    <img src="https://i.imgur.com/Ou1hBlD.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
+    <img src="https://i.imgur.com/5kulx6W.png)" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
+- Part 6 Observe RDP(Remote Desktop Protocol) Traffic:
+
+   -Back in Wireshark, filter for RDP traffic only (tcp.port == 3389)
+   
+   -Observe the immediate non-stop spam of traffic? Why do you think it’s non-stop spamming vs only showing traffic when you do an activity?
+
+   <img src="https://i.imgur.com/XqEhYvT.png" height="80%" width="80%" alt="Disk Sanitization Steps"/> 
+
+   -Answer: because the RDP (protocol) is constantly showing you a live stream from one computer to another, therefore traffic is always being transmitted
+
+
+
