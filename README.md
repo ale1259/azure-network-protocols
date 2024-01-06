@@ -1,5 +1,7 @@
 <p align="center">
-<img src="https://i.imgur.com/Ua7udoS.png" alt="Traffic Examination"/>
+
+<img src="https://i.imgur.com/FwHLpH8.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>  
+  
 </p>
 
 <h1>Network Security Groups (NSGs) and Inspecting Traffic Between Azure Virtual Machines</h1>
@@ -133,5 +135,5 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
    -Answer: because the RDP (protocol) is constantly showing you a live stream from one computer to another, therefore traffic is always being transmitted
 
-
+<img src="https://i.imgur.com/FwHLpH8.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 
