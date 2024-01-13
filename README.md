@@ -131,8 +131,7 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
    
    -Observe the immediate non-stop spam of traffic? Why do you think it’s non-stop spamming vs only showing traffic when you do an activity?
 
-   <img src="https://i.imgur.com/XqEhYvT.png" height="80%" width="80%" alt="Disk Sanitization Steps"/> 
-
+  
    -Answer: because the RDP (protocol) is constantly showing you a live stream from one computer to another, therefore traffic is always being transmitted
 
 <img src="https://i.imgur.com/FwHLpH8.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
